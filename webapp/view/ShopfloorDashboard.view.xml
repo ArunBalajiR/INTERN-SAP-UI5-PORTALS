@@ -1,0 +1,198 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" displayBlock="true"
+	controllerName="PortalPortal.controller.ShopfloorDashboard" xmlns:microchart="sap.suite.ui.microchart"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:f="sap.f" xmlns:card="sap.f.cards">
+	<tnt:ToolHeader>
+		<Button icon="sap-icon://nav-back" type="Transparent" press="onlogoutAndBack"/>
+		<Button icon="sap-icon://home" type="Transparent" press="toHome"/>
+		<Button icon="sap-icon://refresh" type="Transparent" press="refresh"/>
+		<Image src="https://cdn.icon-icons.com/icons2/2699/PNG/512/sap_logo_icon_168849.png" height="50px"/>
+		<ToolbarSpacer/>
+		<Button icon="sap-icon://customer" type="Transparent" press="onlogoutAndBack"/>
+		<l:VerticalLayout>
+			<Text id="name" text="{/Name}"/>
+			<Text id="role" class="role" text="{/Designation}"/>
+		</l:VerticalLayout>
+		<Button icon="sap-icon://notes" type="Transparent" press="toPlanorder"/>
+		<Button icon="sap-icon://factory" type="Transparent" press="toProdorder"/>
+		<OverflowToolbar>
+			<Button text="Logout" type="Transparent" press="onlogoutAndBack"/>
+		</OverflowToolbar>
+	</tnt:ToolHeader>
+	<App id="app">
+		<pages>
+			<Page showHeader="false">
+				<l:VerticalLayout class="sapUiResponsiveMargin">
+					<Title titleStyle="H2" text="Shopfloor Dashboard" class="sapUiTinyMarginBegin"/>
+					<l:HorizontalLayout allowWrapping="true">
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Orders Overview" subheader="Total Orders">
+							<tileContent>
+								<TileContent>
+									<content>
+										<microchart:BulletMicroChart size="Responsive" targetValue="50" targetValueLabel="Production" actualValueLabel="Planned" minValue="0">
+											<microchart:actual>
+												<microchart:BulletMicroChartData id="chartplan" value="" color="Critical"/>
+											</microchart:actual>
+											<microchart:thresholds>
+												<microchart:BulletMicroChartData id="chartplant" value="23" color="Critical"/>
+												<microchart:BulletMicroChartData id="chartprodt" value="20" color="Error"/>
+											</microchart:thresholds>
+										</microchart:BulletMicroChart>
+									</content>
+									<!--<NumericContent withMargin="true" id="planCount" animateTextChange="true" value="34" valueColor="Good" indicator="Up" scale="Nos" />-->
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" press="getplnFilterYr" header="Planned Order" subheader="Yearwise">
+							<tileContent>
+								<TileContent footer="Click Here ⇲">
+									<content>
+										<DatePicker id="plYr" displayFormat="yyyy" valueFormat="yyyy" width="8rem"
+											value="{ path: '/plYear', type: 'DateType', formatOptions: { pattern: 'yyyy', source: { pattern: 'yyyy' } }, constraints: { maximum: '2030' } }"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" press="getplnFilterMnth" header="Planned Orders" subheader="Monthwise">
+							<tileContent>
+								<TileContent footer="Click Here ⇲">
+									<content>
+										<DatePicker id="plMn" displayFormat="MM" valueFormat="MM" width="8rem"
+											value="{ path: '/plMonth', type: 'DateType', formatOptions: { pattern: 'MM', source: { pattern: 'MM' } }, constraints: { maximum: '12' } }"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" press="getProdFilterYr" header="Production Orders" subheader="Yearwise">
+							<tileContent>
+								<TileContent footer="Click Here ⇲">
+									<content>
+										<DatePicker id="pdYr" displayFormat="yyyy" valueFormat="yyyy" width="8rem"
+											value="{ path: '/pdYear', type: 'DateType', formatOptions: { pattern: 'yyyy', source: { pattern: 'yyyy' } }, constraints: { maximum: '2030' } }"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" press="getProdFilterMnth" header="Production Orders" subheader="Monthwise">
+							<tileContent>
+								<TileContent footer="Click Here ⇲ ">
+									<content>
+										<DatePicker id="pdMn" displayFormat="MM" valueFormat="MM" width="8rem"
+											value="{ path: '/pdMonth', type: 'DateType', formatOptions: { pattern: 'MM', source: { pattern: 'MM' } }, constraints: { maximum: '12' } }"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+					</l:HorizontalLayout>
+					<Title titleStyle="H2" text="Detailed View" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+					<IconTabBar id="icontabsf" expandable="false" headerBackgroundDesign="Transparent"
+						class="sapUiResponsiveContentPadding sapUiSmallMarginBegin">
+						<items>
+							<IconTabFilter text="Planned Order" key="planorder">
+								<Table id="plannedOrderListTable" backgroundDesign="Transparent" items="{plannedorderList>/results}" mode="SingleSelectMaster"
+									selectionChange="onPlannedSelect">
+									<headerToolbar>
+										<Toolbar>
+											<Title text="Planned Order List"/>
+											<ToolbarSpacer/>
+											<SearchField placeholder="Search Order" width="auto" search=".onFilterPlanorder"/>
+										</Toolbar>
+									</headerToolbar>
+									<columns>
+										<Column popinDisplay="Block">
+											<ObjectIdentifier title="Order No"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Order Type"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Material"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="MRP\nController"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Open Date"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Order\nStartdate"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Order\nFinishdate"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem type="Active">
+											<cells>
+												<ObjectNumber number="{plannedorderList>PlannedorderNum}" emphasized="true" state="Success"/>
+												<ObjectStatus state="Warning" text="{plannedorderList>OrderType}"/>
+												<ObjectStatus state="Success" text="{path:'plannedorderList>Material'}"/>
+												<Text text="{plannedorderList>MrpController}"/>
+												<Text text="{ path : 'plannedorderList>PlanOpenDate', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }"/>
+												<Text text="{ path : 'plannedorderList>OrderStartDate', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }"/>
+												<Text
+													text="{ path : 'plannedorderList>OrderFinDate', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }\n { path : 'plannedorderList>OrderFinDate', type : 'sap.ui.model.type.DateTime', formatOptions: { relative : true,relativeScale: 'auto', relativeStyle : 'wide' } }"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+								<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+								<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+							</IconTabFilter>
+							<IconTabFilter text="Production Order" key="prodorder">
+								<Table id="productionOrderListTable" backgroundDesign="Transparent" items="{prodorderList>/results}" mode="SingleSelectMaster"
+									selectionChange="onProductionSelect">
+									<headerToolbar>
+										<Toolbar>
+											<Title text="Production order List"/>
+											<ToolbarSpacer/>
+											<SearchField placeholder="Search Order" width="auto" search=".onFilterProdorder"/>
+										</Toolbar>
+									</headerToolbar>
+									<columns>
+										<Column>
+											<ObjectIdentifier title="Order\nNo"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Order Type"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Material"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Material Text"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Reservation Number"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Target Quantity"/>
+										</Column>
+										<Column>
+											<ObjectIdentifier title="Production\nStartdate"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<ObjectNumber number="{prodorderList>OrderNumber}" emphasized="true" state="Success"/>
+												<Text text="{prodorderList>OrderType}"/>
+												<Text text="{prodorderList>Material}"/>
+												<Text text="{prodorderList>MaterialText}"/>
+												<ObjectNumber number="{prodorderList>ReservationNumber}" emphasized="true" state="Warning"/>
+												<ObjectStatus state="Success" text="{path:'prodorderList>TargetQuantity',type:'sap.ui.model.type.Float'}"/>
+												<Text
+													text="{ path : 'prodorderList>ProductionStartDate', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }\n { path : 'prodorderList>ProductionStartDate', type : 'sap.ui.model.type.DateTime', formatOptions: { relative : true,relativeScale: 'auto', relativeStyle : 'wide' } }"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+								<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+								<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</l:VerticalLayout>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

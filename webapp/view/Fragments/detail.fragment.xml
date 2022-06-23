@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="notificationDetailDialog" title="Notification Detail">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto" >
+			<l:content>
+				<f:SimpleForm id="NotificationDetail" width="31rem" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+					labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+					columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						
+						<Label text="Description"/>
+						<Text id="Descript" text=""/>
+						<Label text="Notification Type"/>
+						<Text id="NotifType" text=""/>
+						<Label text="Notification Date"/>
+						<Text id="Notifdate" text=""/>
+						<Label text="Equipment Number"/>
+						<Text id="Equipment" text=""/>
+						<Label text="Equipment Description"/>
+						<Text id="Equidescr" text=""/>
+						<Label text="Functional Location"/>
+						<Text id="Funcloc" text=""/>
+						<Label text="FunLoc Description"/>
+						<Text id="Funcldescr" text=""/>
+						<Label text="Priority"/>
+						<Text id="Priority" text=""/>
+						<Label text="Priority Type"/>
+						<Text id="Priotype" text=""/>
+						<Label text="System Status"/>
+						<Text id="SStatus" text=""/>
+					</f:content>
+				</f:SimpleForm>
+			</l:content>
+		</l:Grid>
+		<buttons>
+			<Button text="Close" press="onCancelDialog"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

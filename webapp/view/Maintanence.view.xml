@@ -1,0 +1,78 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="PortalPortal.controller.Maintanence"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:l="sap.ui.layout" xmlns:frm="sap.ui.layout.form">
+	<App id="app">
+		<pages>
+			<Page 
+				class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
+				>
+				<customHeader>
+					<Bar>
+						
+						<contentMiddle>
+							
+							<Image src="https://i.ibb.co/G02wh1c/kaar-header-logo.png" height="60px" alt="KAAR" />
+						</contentMiddle>
+						
+					</Bar>
+				</customHeader>
+				
+				<subHeader>
+					<OverflowToolbar>
+						<Button  icon="sap-icon://nav-back"  press="onBack"/>
+					</OverflowToolbar>
+				</subHeader>
+				
+					
+				
+				
+				<l:VerticalLayout id="containerLayout" width="100%">
+					
+					<l:BlockLayout id="BlockLayout">
+						<l:BlockLayoutRow>
+							
+							<l:BlockLayoutCell title="{i18n>maintanenceWelcomeText}" class="headingpara">
+								
+								<Text text="One stop for maintanence services like notification lists, workorder lists,etc.,"/>
+								<html:ul class="ul">
+									<html:li class="li">Maintanence Dashboard</html:li>
+									<html:li class="li">Notification Management</html:li>
+									<html:li class="li">Workorder Management</html:li>
+								</html:ul>
+							</l:BlockLayoutCell>
+							<l:BlockLayoutCell title="Login">
+								<frm:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4"
+									labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+									singleContainerFullSize="false" ariaLabelledBy="Title1">
+									<frm:content>
+										<Input value="" type="Text" id="uid" placeholder="User ID"/>
+										<Input value="" type="Password" id="pwd" placeholder="Password"/>
+									</frm:content>
+								</frm:SimpleForm>
+								
+								<FlexBox justifyContent="Center">
+									
+										<Button type="Accept" text="Login" press="onLogin"/>
+										<html:pre>  </html:pre>
+										<Button type="Reject" text="Clear" press="onClear"/>
+									
+								</FlexBox>
+								
+							</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+					</l:BlockLayout>
+				</l:VerticalLayout>
+					<footer>
+					<OverflowToolbar>
+						<Image src="https://sapui5.hana.ondemand.com/resources/sap/ui/documentation/sdk/images/logo_sap.png" height="40px" alt="KAAR" />
+						<ToolbarSpacer/>
+						<Text text="ArunBalajiR ,Copyright © 2022" />
+						
+						<ToolbarSpacer/>
+						<Link href="https://www.kaartech.com/" emphasized="true" text="Kaar Technologies  " />
+						
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

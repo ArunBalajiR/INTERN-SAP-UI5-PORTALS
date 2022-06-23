@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="planorderDetailDialog" title="Planned Order Detail">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto" >
+			<l:content>
+				<f:SimpleForm id="PlannedOrderDetail" width="31rem" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+					labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+					columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						
+						<Label text="Order Type"/>
+						<Text id="pl_OrderType" text=""/>
+						<Label text="Material"/>
+						<Text id="pl_Material" text=""/>
+						<Label text="MRP Controller"/>
+						<Text id="pl_MrpController" text=""/>
+						<Label text="Total Plannedorder Quantity"/>
+						<Text id="pl_TotalPlordQty" text=""/>
+						<Label text="Plan Open Date and Time"/>
+						<Text id="pl_PlanOpenDate" text=""/>
+						<Label text="Order Start Date and Time"/>
+						<Text id="pl_OrderStartDate" text=""/>
+						<Label text="Plan Finish Date and Time"/>
+						<Text id="pl_OrderFinDate" text=""/>
+						<Label text="Production Plant"/>
+						<Text id="pl_ProdPlant" text=""/>
+						<Label text="Special Proc Type"/>
+						<Text id="pl_SpecialprocType" text=""/>
+						
+					</f:content>
+				</f:SimpleForm>
+			</l:content>
+		</l:Grid>
+		<buttons>
+			<Button text="Close" press="onCancelDialog"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

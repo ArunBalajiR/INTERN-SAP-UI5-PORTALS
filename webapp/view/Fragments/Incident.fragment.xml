@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="incidentDetailDialog" title="Incident Detail">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			<l:content>
+				<f:SimpleForm id="IncidentDetail" editable="true" width="31rem" layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+					labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+					columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						
+						<Label text="Incident Description"/>
+						<Text id="inc_Evdesc" text=""/>
+						<Label text="Incident Date"/>
+						<Text id="inc_Evdat" text=""/>
+						
+						<Label text="Accident Location"/>
+						<Text id="inc_Acloc" text=""/>
+						<Label text="Location Description"/>
+						<Text id="inc_Aclocdesc" text=""/>
+						<Label text="Functional Location"/>
+						<Text id="inc_Tplnr" text=""/>
+						<Label text="Equipment No."/>
+						<Text id="inc_Equnr" text=""/>
+						<Label text="Equipment Desc"/>
+						<Text id="inc_Eqdesc" text=""/>
+						<Label text="Valid from (incl.)"/>
+						<Text id="inc_Valfr" text=""/>
+						<Label text="Valid to (incl.)"/>
+						<Text id="inc_Valto" text=""/>
+						<Label text="Status"/>
+						<Text id="inc_Iastatus" text=""/>
+						<Label text="Inc./acc. log entry"/>
+						<Text id="inc_Ialid" text=""/>
+						<Label text="Is Reportable Event ?"/>
+						<Text id="inc_Iarephdflg" text=""/>
+						<Label text="Created On"/>
+						<Text id="inc_Crdat" text=""/>
+						<Label text="Created By"/>
+						<Text id="inc_Crnam" text=""/>
+					</f:content>
+				</f:SimpleForm>
+				
+			</l:content>
+		</l:Grid>
+		<buttons>
+			<Button text="Close" press="onCancelDialog"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

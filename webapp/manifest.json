@@ -1,0 +1,211 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "PortalPortal",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZARUN_MAINTSERVICE_SRV": {
+				"uri": "/sap/opu/odata/sap/ZARUN_MAINTSERVICE_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZARUN_MAINTSERVICE_SRV/metadata.xml"
+				}
+			},
+			"ZARUNSHOPFLOORSERVICE_SRV": {
+				"uri": "/sap/opu/odata/sap/ZARUNSHOPFLOORSERVICE_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZARUNSHOPFLOORSERVICE_SRV/metadata.xml"
+				}
+			},
+			"ZARUNEHSMSERVICE_SRV": {
+				"uri": "/sap/opu/odata/sap/ZARUNEHSMSERVICE_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZARUNEHSMSERVICE_SRV/metadata.xml"
+				}
+			},
+			"ZARUNQMSERVICE_SRV": {
+				"uri": "/sap/opu/odata/sap/ZARUNQMSERVICE_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZARUNQMSERVICE_SRV/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "PortalPortal.view.Index",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "PortalPortal.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "PortalPortal.view",
+				"targetAggregation": "pages",
+				"transition": "slide"
+			},
+			"targets": {},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "Index",
+					"view": "Index",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "Maintanence",
+					"name": "Maintanence",
+					"view": "Maintanence",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "MaintenanceDashboard",
+					"name": "MaintenanceDashboard",
+					"view": "MaintenanceDashboard",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "Shopfloor",
+					"name": "Shopfloor",
+					"view": "Shopfloor",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "ShopfloorDashboard",
+					"name": "ShopfloorDashboard",
+					"view": "ShopfloorDashboard",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "PlannedOrderYear",
+					"name": "PlannedOrderYear",
+					"view": "PlannedOrderYear",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "PlannedOrderMonth",
+					"name": "PlannedOrderMonth",
+					"view": "PlannedOrderMonth",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "ProductionOrderYear",
+					"name": "ProductionOrderYear",
+					"view": "ProductionOrderYear",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "ProductionOrderMonth",
+					"name": "ProductionOrderMonth",
+					"view": "ProductionOrderMonth",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "Ehsm",
+					"name": "Ehsm",
+					"view": "Ehsm",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "EhsmDashboard",
+					"name": "EhsmDashboard",
+					"view": "EhsmDashboard",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "Quality",
+					"name": "Quality",
+					"view": "Quality",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				},
+				{
+					"pattern": "QualityDashboard",
+					"name": "QualityDashboard",
+					"view": "QualityDashboard",
+					"targetAggregation": "pages",
+					"controlId": "app"
+				}
+			]
+		}
+	}
+}

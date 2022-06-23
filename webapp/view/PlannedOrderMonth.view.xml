@@ -1,0 +1,71 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="PortalPortal.controller.PlannedOrderMonth"
+	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:f="sap.f"
+	xmlns:card="sap.f.cards">
+	<tnt:ToolHeader>
+		<Button icon="sap-icon://nav-back" type="Transparent" press="onBack"/>
+		<Button icon="sap-icon://home" type="Transparent" press="onHomelogout"/>
+		<Button icon="sap-icon://refresh" type="Transparent" press="setFilteredData"/>
+		<ToolbarSpacer/>
+		<Image src="https://cdn.icon-icons.com/icons2/2699/PNG/512/sap_logo_icon_168849.png" height="50px"/>
+		<Button icon="sap-icon://customer" type="Transparent" press="onHomelogout"/>
+	</tnt:ToolHeader>
+	<App id="app">
+		<pages>
+			<Page showHeader="false">
+				<l:VerticalLayout class="sapUiResponsiveMargin">
+					<Table id="plannedOrderFilterMnthTable" backgroundDesign="Solid" items="{plannedOrderFilterMnth>/results}" mode="SingleSelectMaster"
+						selectionChange="onPlannedFilterMnthSelect">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="Planned Order - Monthwise"/>
+								<ToolbarSpacer/>
+								<SearchField placeholder="Search Order" width="auto" search=".onFilterPlnMonth"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns id="col">
+							<Column popinDisplay="Block">
+								<ObjectIdentifier title="PlannedOrder\nNo"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Order Type"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Material"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="MRP\nController"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Open Date"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Order\nStartdate"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Order\nFinishdate"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Active">
+								<cells>
+									<ObjectNumber number="{plannedOrderFilterMnth>PlannedorderNum}" emphasized="true" state="Success"/>
+									<ObjectStatus state="Warning" text="{plannedOrderFilterMnth>OrderType}"/>
+									<ObjectStatus state="Success" text="{path:'plannedOrderFilterMnth>Material'}"/>
+									<Text text="{plannedOrderFilterMnth>MrpController}"/>
+									<Text
+										text="{ path : 'plannedOrderFilterMnth>PlanOpenDate', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }"/>
+									<Text
+										text="{ path : 'plannedOrderFilterMnth>OrderStartDate', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }"/>
+									<Text
+										text="{ path : 'plannedOrderFilterMnth>OrderFinDate', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }\n { path : 'plannedOrderFilterMnth>OrderFinDate', type : 'sap.ui.model.type.DateTime', formatOptions: { relative : true,relativeScale: 'auto', relativeStyle : 'wide' } }"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+					<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+				</l:VerticalLayout>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

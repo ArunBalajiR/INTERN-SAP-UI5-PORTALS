@@ -1,0 +1,88 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="riskDetailDialog" title="Risk Assessment Detail">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			<l:content>
+				<f:SimpleForm id="RiskDetail" editable="true" width="31rem" layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+					labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+					columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						
+						<Label text="Assessment No."/>
+						<Text id="risk_Riskassetnum" text=""/>
+						
+						<Label text="Work Area"/>
+						<Text id="risk_Recntwah" text=""/>
+						
+						<Label text="Object No."/>
+						<Text id="risk_Objnr" text=""/>
+						
+						<Label text="Person Responsible"/>
+						<Text id="risk_Assctrper" text=""/>
+						
+						<Label text="Severity Of Risk"/>
+						<Text id="risk_Severe" text=""/>
+						
+						<Label text="Change State"/>
+						<Text id="risk_Actn" text=""/>
+						
+						<Label text="Valid from (incl.)"/>
+						<Text id="risk_Valfr" text=""/>
+						
+						<Label text="Valid to (incl.)"/>
+						<Text id="risk_Valto" text=""/>
+						
+						<Label text="Data Record Inactive"/>
+						<Text id="risk_Parkflg" text=""/>
+						
+						<Label text="Created On"/>
+						<Text id="risk_Crdat" text=""/>
+						
+						<Label text="Created By"/>
+						<Text id="risk_Crnam" text=""/>
+						
+						<Label text="Changed On"/>
+						<Text id="risk_Upddat" text=""/>
+						
+						<Label text="Changed By"/>
+						<Text id="risk_Updnam" text=""/>
+						
+						<Label text="Data Origin"/>
+						<Text id="risk_Srsid" text=""/>
+						
+						<Label text="Agent Type"/>
+						<Text id="risk_Eptype" text=""/>
+						
+						<Label text="Agent"/>
+						<Text id="risk_Epid" text=""/>
+						
+						<Label text="Status"/>
+						<Text id="risk_Erstatus" text=""/>
+						
+						<Label text="Initial Status"/>
+						<Text id="risk_Erinitstatus" text=""/>
+						
+						<Label text="Note"/>
+						<Text id="risk_Rem" text=""/>
+						
+						<Label text="Rating Category"/>
+						<Text id="risk_Ratingcat" text=""/>
+						
+						<Label text="Probability"/>
+						<Text id="risk_Problty" text=""/>
+						
+						<Label text="Result"/>
+						<Text id="risk_Rainvresult" text=""/>
+						
+						<Label text="Actual End Date"/>
+						<Text id="risk_Actenddat" text=""/>
+						
+					</f:content>
+				</f:SimpleForm>
+				
+			</l:content>
+		</l:Grid>
+		<buttons>
+			<Button text="Close" press="onCancelDialog"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

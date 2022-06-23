@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="usageDecisionDialog" title="Usage Decision Detail">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			<l:content>
+				<f:SimpleForm id="UsageDecisionDetail" editable="true" width="31rem" layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+					labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+					columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						<Label text="Usage Decision" />
+						<Text id="ud_UdCode" text=""/>
+						
+						<Label text="UD CatalogType"/>
+						<Text id="ud_UdCatalogType" text=""/>
+						
+						<Label text="UD Group"/>
+						<Text id="ud_UdCodeGroup" text=""/>
+						
+						<Label text="UD Plant"/>
+						<Text id="ud_UdPlant" text=""/>
+						
+						<Label text="UD Selected Set"/>
+						<Text id="ud_UdSelectedSet" text=""/>
+						
+						<Label text="Automatic UD"/>
+						<Text id="ud_IndAutomaticUd" text=""/>
+						
+						<Label text="FollowUpAction"/>
+						<Text id="ud_FollowUpAction" text=""/>
+						
+						<Label text="CodeValuation"/>
+						<Text id="ud_CodeValuation" text=""/>
+						
+						<Label text="Quality Score"/>
+						<Text id="ud_QualityScore" text=""/>
+						
+						<Label text="UD Recorded By"/>
+						<Text id="ud_UdRecordedByUser" text=""/>
+						
+						<Label text="UD Recorded On"/>
+						<Text id="ud_UdRecordedOnDate" text=""/>
+						
+					
+					</f:content>
+				</f:SimpleForm>
+				
+			</l:content>
+		</l:Grid>
+		<buttons>
+			<Button text="Close" press="onCancelDialog"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

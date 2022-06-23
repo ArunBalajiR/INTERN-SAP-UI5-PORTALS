@@ -1,0 +1,235 @@
+<mvc:View controllerName="PortalPortal.controller.MaintenanceDashboard" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:f="sap.f"
+	xmlns:card="sap.f.cards" xmlns:core="sap.ui.core" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:chart="sap.suite.ui.commons">
+	<tnt:ToolHeader>
+		<Button icon="sap-icon://nav-back" type="Transparent" press="onLogout"/>
+		<Button icon="sap-icon://home" type="Transparent" press="toHome"/>
+		<Button icon="sap-icon://refresh" type="Transparent" press="refresh"/>
+		<Image src="https://cdn.icon-icons.com/icons2/2699/PNG/512/sap_logo_icon_168849.png" height="50px"/>
+		<ToolbarSpacer/>
+		<Button icon="sap-icon://customer" type="Transparent" press="onLogout"/>
+		<l:VerticalLayout>
+			<Text id="name" text="{/Name}"/>
+			<Text id="role" class="role" text="{/Designation}"/>
+		</l:VerticalLayout>
+		<Button icon="sap-icon://bell" type="Transparent" press="toNotification"/>
+		<Button icon="sap-icon://task" type="Transparent" press="toWorkorder"/>
+		<OverflowToolbar>
+			<Button text="Logout" type="Transparent" press="onLogout"/>
+		</OverflowToolbar>
+	</tnt:ToolHeader>
+	<App id="app">
+		<pages>
+			<Page showHeader="false">
+				<content>
+					<ObjectHeader icon="https://i.ibb.co/3SzvQWk/image.png" iconDensityAware="false" iconAlt="{/Name}" responsive="true" title="{/Name}"
+						intro="{/Designation}" class="sapUiResponsivePadding--header">
+						<ObjectAttribute title="User ID" text="{/Userid}"/>
+						<ObjectAttribute title="Planning Plant" active="true" text="{/Plant}"/>
+						<ObjectAttribute title="Office Phone" text="+91 7904402214"/>
+						<ObjectAttribute title="Email address" text="rarunbalaji@kaartech.com" active="true"/>
+						<headerContainer id="headermaintanence" scrollStep="200">
+							<IconTabBar id="idIconTabBar" expandable="false" select="handleIconTabBarSelect" headerBackgroundDesign="Transparent"
+								class="sapUiResponsiveContentPadding sapUiSmallMarginBegin">
+								<items>
+									<IconTabFilter text="Home" key="home">
+										<HeaderContainer id="headericons" scrollStep="200">
+											<TileContent footer="Notifications">
+												<content>
+													<NumericContent id="nvalue" value="00" icon="sap-icon://bell"/>
+												</content>
+											</TileContent>
+											<TileContent footer="Workorders">
+												<content>
+													<NumericContent id="wvalue" value="00" icon="sap-icon://task"/>
+												</content>
+											</TileContent>
+											<TileContent footer="Priority Notifications">
+												<content>
+													<NumericContent value="00" id="npvalue" scale="High" valueColor="Good" indicator="Up" press="press"/>
+												</content>
+											</TileContent>
+											<TileContent footer="Priority Workorders">
+												<content>
+													<NumericContent scale="High" id="wpvalue" value="88" valueColor="Error" indicator="Up"/>
+												</content>
+											</TileContent>
+										</HeaderContainer>
+										<Toolbar>
+											<ToolbarSpacer/>
+											<Title text="" level="H3"/>
+											<ToolbarSpacer/>
+										</Toolbar>
+										<Toolbar>
+											<ToolbarSpacer/>
+											<Title text="ARUN BALAJI INTERN FY22 BATCH 6" level="H1"/>
+											<ToolbarSpacer/>
+										</Toolbar>
+									</IconTabFilter>
+									<IconTabFilter text="Notification List" key="notification">
+										<Table id="notificationListTable" items="{notificationList>/results}" mode="SingleSelectMaster" selectionChange="onNotificationSelect">
+											<headerToolbar>
+								               <Toolbar>
+								               	  <Title text="Notification List"/>
+								                  <ToolbarSpacer />
+								                  <SearchField id="searchFieldM" placeholder="Search Notification" width="auto" search=".onFilterNotification" />
+								               </Toolbar>
+								            </headerToolbar>
+											
+											<columns>
+												<Column>
+													<ObjectIdentifier title="Notification"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Date"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Description"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Equipment"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Functional\nLocation"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Priority"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="System Status"/>
+													
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem type="Active">
+													<cells>
+														<ObjectNumber number="{notificationList>Notificat}" emphasized="true" />
+														
+														<Text text="{ path : 'notificationList>Notifdate', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }\n { path : 'notificationList>Notifdate', type : 'sap.ui.model.type.DateTime', formatOptions: { relative : true,relativeScale: 'auto', relativeStyle : 'wide' } }"/>
+														<Text text="{path: 'notificationList>Descript',formatter: '.formatter.removeEmpty'}"/>
+														<Text text="{notificationList>Equipment}"/>
+														<ObjectStatus state="Warning" text="{notificationList>Funcloc}"/>
+														<ObjectStatus state="Error" text="{notificationList>Priority}"/>
+														<ObjectStatus state="Success" text="{notificationList>SStatus}"/>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+										<OverflowToolbar>
+											<ToolbarSpacer/>
+											<Text text="ArunBalajiR FY22 BATCH 6"/>
+											<ToolbarSpacer/>
+										</OverflowToolbar>
+									</IconTabFilter>
+									<IconTabFilter text="WorkOrder List" key="workorder">
+										<Table id="workorderListTable" items="{workorderList>/results}" mode="SingleSelectMaster" selectionChange="onWorkorderSelect">
+										<headerToolbar>
+								               <Toolbar>
+								               	  <Title text="Workorder List"/>
+								                  <ToolbarSpacer />
+								                  <SearchField placeholder="Search Order" width="auto" search=".onFilterWorkorder" />
+								               </Toolbar>
+								            </headerToolbar>
+											<columns>
+												<Column>
+													<ObjectIdentifier title="Order ID"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Ordet Type"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Priority"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Equipment"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Control Key/\nOrder Type"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Functional\nLocation"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="WorkCenter"/>
+													
+												</Column>
+												<Column>
+													<ObjectIdentifier title="System Status"/>
+													
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem type="Active">
+													<cells>
+														<ObjectNumber number="{workorderList>Orderid}" emphasized="true"/>
+														<Text text="{workorderList>OrderType}"/>
+														<ObjectStatus state="Error" text="{workorderList>Priority}"/>
+														<Text text="{workorderList>Equipment}"/>
+														<ObjectStatus state="Warning" text="{workorderList>ControlKey}"/>
+														<Text text="{workorderList>Funcloc}"/>
+														<Text text="{workorderList>WorkCntr}"/>
+														<ObjectStatus state="Success" text="{workorderList>SStatus}"/>
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+										<OverflowToolbar>
+											<ToolbarSpacer/>
+											<Text text="ArunBalajiR FY22 BATCH 6"/>
+											<ToolbarSpacer/>
+										</OverflowToolbar>
+									</IconTabFilter>
+									<IconTabFilter text="Statistics">
+										<chart:ChartContainer id="chartContainer" showFullScreen="true" showZoom="false" title="Notification - System Status">
+											<chart:ChartContainerContent>
+												<chart:content>
+													<!-- Here your vizframe chart will be added -->
+													<viz:VizFrame id="idpiechart" width="auto" uiConfig="{applicationSet:'fiori'}" vizType="pie"
+														vizProperties="{ plotArea:{ dataLabel:{visible: true} }, title : {text:'System status of Notifications'} }" selectData="myOnClickHandler"
+														noDataText="Complete the Tasks" renderComplete="handleRenderComplete">
+														<viz:dataset>
+															<viz.data:FlattenedDataset id="flattenData" data="{systemStatus>/Items}">
+																<viz.data:dimensions>
+																	<viz.data:DimensionDefinition name="SystemStatus" value="{systemStatus>SystemStatus}"/>
+																</viz.data:dimensions>
+																<viz.data:measures>
+																	<viz.data:MeasureDefinition name="Count" value="{systemStatus>Count}"/>
+																</viz.data:measures>
+															</viz.data:FlattenedDataset>
+														</viz:dataset>
+														<viz:feeds>
+															<viz.feeds:FeedItem uid="size" type="Measure" values="Count"/>
+															<viz.feeds:FeedItem uid="color" type="Dimension" values="SystemStatus"/>
+														</viz:feeds>
+													</viz:VizFrame>
+												</chart:content>
+											</chart:ChartContainerContent>
+										</chart:ChartContainer>
+										<OverflowToolbar>
+											<ToolbarSpacer/>
+											<Text text="ArunBalajiR FY22 BATCH 6"/>
+											<ToolbarSpacer/>
+										</OverflowToolbar>
+									</IconTabFilter>
+								</items>
+							</IconTabBar>
+						</headerContainer>
+					</ObjectHeader>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

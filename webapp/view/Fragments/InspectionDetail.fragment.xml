@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="inpectionDetailDialog" title="Inspection Detail">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			<l:content>
+				<f:SimpleForm id="InspectionDetail" editable="true" width="31rem" layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+					labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+					columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						<Label text="Inspection Type" />
+						<Text id="ins_InspType" text=""/>
+						
+						<Label text="Created On "/>
+						<Text id="ins_CreatDat" text=""/>
+						
+						<Label text="Created By "/>
+						<Text id="ins_CreatedByUser" text=""/>
+						
+						<Label text="Material No"/>
+						<Text id="ins_Material" text=""/>
+						
+						<Label text="Material Desc"/>
+						<Text id="ins_TxtMat" text=""/>
+						
+						<Label text="Lot Quantity"/>
+						<Text id="ins_Losmenge" text=""/>
+						
+						<Label text="Vendor Acc No."/>
+						<Text id="ins_Vendor" text=""/>
+						
+						<Label text="Code Valuation"/>
+						<Text id="ins_CodeValuation" text=""/>
+						
+						<Label text="Quality Score"/>
+						<Text id="ins_QualityScore" text=""/>
+						
+						<Label text="Short Text"/>
+						<Text id="ins_ShortText" text=""/>
+						
+						<Label text="Usage Decision"/>
+						<Text id="ins_UsageDecision" text=""/>
+						
+						<Label text="UD Code Group"/>
+						<Text id="ins_UdCodeGroup" text=""/>
+						
+						<Label text="UD Recorded By"/>
+						<Text id="ins_UdRecordedByUser" text=""/>
+						
+						<Label text="UD Recorded On"/>
+						<Text id="ins_UdRecordedOnDate" text=""/>
+						
+					
+					</f:content>
+				</f:SimpleForm>
+				
+			</l:content>
+		</l:Grid>
+		<buttons>
+			<Button text="Close" press="onCancelDialog"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

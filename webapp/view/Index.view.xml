@@ -1,0 +1,123 @@
+<mvc:View height="100%" controllerName="PortalPortal.controller.Index" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:html="http://www.w3.org/1999/xhtml"> 
+	
+	<App id="app">
+		
+		<pages>
+			
+			<Page showHeader="false" title="Portal Dashboard" showFooter="true">
+					
+				<tnt:ToolHeader>
+					<Image src="https://cdn.icon-icons.com/icons2/2699/PNG/512/sap_logo_icon_168849.png" height="50px"/>
+		
+		<Title text="Portal Dashboard" level="H2"/>
+		
+		<ToolbarSpacer/>
+		<Image src="https://i.ibb.co/4K8bkh1/kaarsap.png" height="60px" alt="KAAR" />
+	</tnt:ToolHeader>
+	<Toolbar>
+			<ToolbarSpacer />
+				<Title text="" textAlign="Center" titleStyle="H2"  />
+			<ToolbarSpacer />
+		</Toolbar>
+		<l:VerticalLayout id="containerLayout" width="100%">
+					<l:BlockLayout id="BlockLayout">
+						<l:BlockLayoutRow>
+							<l:BlockLayoutCell title="Accelerate Your SAP Digital Transformation
+with  the World’s Best Pure-Play SAP Partner" class="headingpara">
+								<Text text="With Kaar Technologies"/>
+								<html:ul class="ul">
+									<html:li class="li">SAP S/4HANA Expertise</html:li>
+									<html:li class="li">SAP Pure Play Consultants</html:li>
+									<html:li class="li">SAP Quality Award Focused Delivery</html:li>
+								</html:ul>
+							</l:BlockLayoutCell>
+							<l:BlockLayoutCell>
+								<Image height="100%" width="100%" src="https://static.toiimg.com/thumb/imgsize-23456,msid-86611795,width-600,resizemode-4/86611795.jpg" />
+							</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+					</l:BlockLayout>
+				</l:VerticalLayout>
+		<l:BlockLayout background="Light">
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell class="sapUiNoContentPadding">
+				
+	
+					
+					<Image src="https://i.ibb.co/yYdx90F/kaarpngfinal.png" width="100%" height="100%"/>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+			<l:BlockLayoutRow>
+				<l:BlockLayoutCell backgroundColorSet="ColorSet11" backgroundColorShade="ShadeD">
+					<l:VerticalLayout>
+						<core:Icon src="sap-icon://wrench" size="3.5rem" color="Default"/>
+						<Title text="Maintenance Portal" level="H4" titleStyle="H3" class="sapUiTinyMarginTopBottom"/>
+						<Text text="{i18n>productmaintTitle}" class="sapUiTinyMarginBottom"/>
+						<Button  icon="sap-icon://step"  iconFirst="false" press="maintanencePortal" text="Visit Portal" />
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell backgroundColorSet="ColorSet11" backgroundColorShade="ShadeB">
+					<l:VerticalLayout>
+						<core:Icon src="sap-icon://factory" size="3.5rem" color="Default"/>
+						<Title text="Shopfloor Portal" level="H4" titleStyle="H3" class="sapUiTinyMarginTopBottom"/>
+						<Text text="{i18n>productmaintTitle}" class="sapUiTinyMarginBottom"/>
+						<Button  icon="sap-icon://step"  iconFirst="false" press="shopfloorPortal" text="Visit Portal" />
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell backgroundColorSet="ColorSet11" backgroundColorShade="ShadeD">
+					<l:VerticalLayout>
+						<core:Icon src="sap-icon://globe" size="3.5rem" color="Default"/>
+						<Title text="EHSM Portal" level="H4" titleStyle="H3" class="sapUiTinyMarginTopBottom"/>
+						<Text text="{i18n>productmaintTitle}" class="sapUiTinyMarginBottom"/>
+						<Button  icon="sap-icon://step"  iconFirst="false" press="ehsmPortal" text="Visit Portal" />
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+				<l:BlockLayoutCell backgroundColorSet="ColorSet11" backgroundColorShade="ShadeB">
+					<l:VerticalLayout>
+						<core:Icon src="sap-icon://inventory" size="3.5rem" color="Default"/>
+						<Title text="Quality Portal" level="H4" titleStyle="H3" class="sapUiTinyMarginTopBottom"/>
+						<Text text="{i18n>productmaintTitle}" class="sapUiTinyMarginBottom"/>
+						<Button  icon="sap-icon://step"  iconFirst="false" press="qualityPortal" text="Visit Portal" />
+					</l:VerticalLayout>
+				</l:BlockLayoutCell>
+			</l:BlockLayoutRow>
+		
+		</l:BlockLayout>
+		<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+		<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+		
+		
+		<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+		<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+			
+		<l:VerticalLayout>
+			<l:HorizontalLayout allowWrapping="false">
+				<ToolbarSpacer />
+				<GenericTile
+					header="Developed By"
+					subheader="ArunBalaji R FY22 INTERN BATCH 6"
+					mode="LineMode"
+					class="sapUiTinyMarginBegin"/>
+				<GenericTile
+					header="Kaar Technologies"
+					mode="LineMode"
+					class="sapUiTinyMarginBegin"/>
+				<GenericTile
+					header="Github"
+					mode="LineMode"
+					subheader="Find full Sourcecode for this project here"
+					class="sapUiTinyMarginBegin"/>
+				
+				<GenericTile
+					header="Copyright © 2022"
+					mode="LineMode"
+					
+					class="sapUiTinyMarginBegin"/>
+					
+			</l:HorizontalLayout>
+		</l:VerticalLayout>
+		
+	</Page>
+		</pages>
+	</App>
+</mvc:View>

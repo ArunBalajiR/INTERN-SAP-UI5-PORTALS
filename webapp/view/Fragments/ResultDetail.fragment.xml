@@ -1,0 +1,61 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="inpectionDetailDialog" title="Result Records">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto">
+			<l:content>
+				<f:SimpleForm id="ResultRecordDetail" editable="true" width="31rem" layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+					labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+					columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						<Label text="Inspector" />
+						<Text id="rr_Pruefer" text=""/>
+						
+						<Label text="Start Date"/>
+						<Text id="rr_Pruefdatuv" text=""/>
+						
+						<Label text="Inspection Characteristics "/>
+						<Text id="rr_Merknr" text=""/>
+						
+						<Label text="Current Node"/>
+						<Text id="rr_Vorglfnr" text=""/>
+						
+						<Label text="Status"/>
+						<Text id="rr_Satzstatus" text=""/>
+						
+						<Label text="Valuation"/>
+						<Text id="rr_Mbewertg" text=""/>
+						
+						<Label text="Recorded"/>
+						<Text id="rr_Iststpumf" text=""/>
+						
+						<Label text="Inspected"/>
+						<Text id="rr_Anzwertg" text=""/>
+						
+						<Label text="Catelog Type"/>
+						<Text id="rr_Katalgart1" text=""/>
+						
+						<Label text="Non Conforming"/>
+						<Text id="rr_Anzfehleh" text=""/>
+						
+						<Label text="Origin.Results Data"/>
+						<Text id="rr_Qergdath" text=""/>
+						
+						<Label text="Dynamic Mod Valuation"/>
+						<Text id="rr_Dbewertg" text=""/>
+						
+						<Label text="Created By"/>
+						<Text id="rr_Ersteller" text=""/>
+						
+						<Label text="Created On"/>
+						<Text id="rr_Erstelldat" text=""/>
+						
+					
+					</f:content>
+				</f:SimpleForm>
+				
+			</l:content>
+		</l:Grid>
+		<buttons>
+			<Button text="Close" press="onCancelDialog"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

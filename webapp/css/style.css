@@ -1,0 +1,87 @@
+/* Enter your custom styles here */
+.welcomeCarouselText {
+	color: white;
+	display: block;
+	position: fixed;
+	bottom: 0;
+	padding: 1rem;
+	font-size: 1.5rem;
+	width: 100%;
+	
+}
+.sapMITBFilter .sapMITBText {
+  width: 10rem;
+}
+
+.sapMITBTab {
+  width: 10rem;
+}
+.sapMTB{
+	border-bottom-style: hidden;
+}
+
+.sapUiBlockCellContent{
+	color: #9E1915;
+}
+
+.welcomeCarouselTextBlack{
+	color: black;
+	display: block;
+	position: fixed;
+	bottom: 0;
+	padding: 1rem;
+	font-size: 1.5rem;
+	width: 100%;
+	
+}
+
+.sapMFlexBoxBGTransparent{
+	background-color: transparent;
+	height: 400px;
+}
+
+.status{
+	color: green;
+	
+}
+.sapTntToolHeader.sapMTB {
+    height: 4rem;
+}
+.headingpara{
+	
+	color: #3090C7;
+}
+.logindiv{
+	height:400px;
+	margin: 50px;
+}
+.centerelements{
+	margin : 0;
+	position : absolute;
+	top : 50%;
+	transform : translateY(-50%);
+}
+.loginflexboxmargin{
+	margin: 10px;
+}
+ul {
+  line-height: 45px;
+}
+.ul {
+  list-style: none; /* remove the default */
+}
+
+.role{
+	font-size : 15px;
+}
+
+.li::before { /* add the new bullet point */
+  display: inline-block;
+    content: '';
+    -webkit-border-radius: 0.375rem;
+    border-radius: 0.375rem;
+    height: 0.75rem;
+    width: 0.75rem;
+    margin-right: 0.5rem;
+    background-color: #9E1915;
+}

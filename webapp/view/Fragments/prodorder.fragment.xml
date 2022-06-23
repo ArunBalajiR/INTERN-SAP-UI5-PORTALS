@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="prodorderDetailDialog" title="Production Order Detail">
+		<l:Grid defaultSpan="L12 M12 S12" width="auto" >
+			<l:content>
+				<f:SimpleForm id="ProductionOrderDetail" width="31rem" editable="true" layout="ResponsiveGridLayout" title="" labelSpanXL="4"
+					labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+					columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<f:content>
+						
+						<Label text="Order Type"/>
+						<Text id="pr_OrderType" text=""/>
+						<Label text="Material"/>
+						<Text id="pr_Material" text=""/>
+						<Label text="Material Text"/>
+						<Text id="pr_MaterialText" text=""/>
+						<Label text="MRP Controller"/>
+						<Text id="pr_MrpController" text=""/>
+						<Label text="Target Quantity"/>
+						<Text id="pr_TargetQuantity" text=""/>
+						<Label text="Unit"/>
+						<Text id="pr_Unit" text=""/>
+						<Label text="Reservation Number"/>
+						<Text id="pr_ReservationNumber" text=""/>
+						<Label text="Routing Number"/>
+						<Text id="pr_RoutingNo" text=""/>
+						<Label text="Production Start Date"/>
+						<Text id="pr_ProductionStartDate" text=""/>
+						<Label text="Production Finish Date"/>
+						<Text id="pr_ProductionFinishDate" text=""/>
+						<Label text="Scheduled Release Date"/>
+						<Text id="pr_SchedReleaseDate" text=""/>
+						<Label text="Actual Release Date"/>
+						<Text id="pr_ActualReleaseDate" text=""/>
+						<Label text="System Status"/>
+						<Text id="pr_SystemStatus" text=""/>
+						
+						
+					</f:content>
+				</f:SimpleForm>
+			</l:content>
+		</l:Grid>
+		<buttons>
+			<Button text="Close" press="onCancelDialog"></Button>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

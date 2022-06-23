@@ -1,0 +1,234 @@
+<mvc:View controllerName="PortalPortal.controller.QualityDashboard" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:f="sap.f" xmlns:card="sap.f.cards"
+	xmlns:core="sap.ui.core" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:chart="sap.suite.ui.commons">
+	<tnt:ToolHeader>
+		<Button icon="sap-icon://nav-back" type="Transparent" press="onLogout"/>
+		<Button icon="sap-icon://home" type="Transparent" press="toHome"/>
+		<Button icon="sap-icon://refresh" type="Transparent" press="refresh"/>
+		<Image src="https://cdn.icon-icons.com/icons2/2699/PNG/512/sap_logo_icon_168849.png" height="50px"/>
+		<ToolbarSpacer/>
+		<Button icon="sap-icon://customer" type="Transparent" press="onLogout"/>
+		<l:VerticalLayout>
+			<Text id="name" text="{/Name}"/>
+			<Text id="role" class="role" text="{/Designation}"/>
+		</l:VerticalLayout>
+		<Button icon="sap-icon://inspection" type="Transparent" press="toInspection"/>
+		<Button icon="sap-icon://request" type="Transparent" press="toResultrec"/>
+		<OverflowToolbar>
+			<Button text="Logout" type="Transparent" press="onLogout"/>
+		</OverflowToolbar>
+	</tnt:ToolHeader>
+	<App id="app">
+		<pages>
+			<Page showHeader="false">
+				<content>
+					<ObjectHeader icon="https://i.ibb.co/3SzvQWk/image.png" iconDensityAware="false" iconAlt="{/Name}" responsive="true" title="{/Name}"
+						intro="{/Designation}" class="sapUiResponsivePadding--header">
+						<ObjectAttribute title="User ID" text="{/Userid}"/>
+						<ObjectAttribute title="Plant" active="true" text="{/Plant}"/>
+						<ObjectAttribute title="Office Phone" text="+91 7904402214"/>
+						<ObjectAttribute title="Email address" text="rarunbalaji@kaartech.com" active="true"/>
+						<headerContainer id="headerquality" scrollStep="200">
+							<IconTabBar expandable="false" id="icontabQuality" select="handleIconTabBarSelect" headerBackgroundDesign="Transparent"
+								class="sapUiResponsiveContentPadding sapUiSmallMarginBegin">
+								<items>
+									<IconTabFilter text="Home" key="home">
+										<HeaderContainer id="headericons" scrollStep="200">
+											<TileContent footer="Inspection Lots">
+												<content>
+													<NumericContent id="insplotcount" value="00" valueColor="Neutral" icon="sap-icon://inspection"/>
+												</content>
+											</TileContent>
+											<TileContent footer="Pending Lots">
+												<content>
+													<NumericContent value="00" id="decPending" scale="High" valueColor="Critical" indicator="Up"/>
+												</content>
+											</TileContent>
+											<TileContent footer="Rejected Lots">
+												<content>
+													<NumericContent scale="High" id="decRejected" value="00" valueColor="Error" indicator="Down"/>
+												</content>
+											</TileContent>
+											<TileContent footer="Accepted Lots">
+												<content>
+													<NumericContent scale="None" id="decAccepted" value="00" valueColor="Good" indicator="Down"/>
+												</content>
+											</TileContent>
+											<TileContent footer="Result Recording">
+												<content>
+													<NumericContent id="resreccount" value="00" icon="sap-icon://request"/>
+												</content>
+											</TileContent>
+										</HeaderContainer>
+										<Toolbar>
+											<ToolbarSpacer/>
+											<Title text="" level="H3"/>
+											<ToolbarSpacer/>
+										</Toolbar>
+										<Toolbar>
+											<ToolbarSpacer/>
+											<Title text="ARUN BALAJI INTERN FY22 BATCH 6" level="H1"/>
+											<ToolbarSpacer/>
+										</Toolbar>
+									</IconTabFilter>
+									<IconTabFilter text="Inspection Lot" key="inspectionlot">
+										<Table id="inspectionlotTable" items="{inspectionsList>/results}" mode="SingleSelectMaster" selectionChange="onInspectionSelect">
+											<headerToolbar>
+												<Toolbar>
+													<Title text="Inspection Lots"/>
+													<ToolbarSpacer/>
+													<SearchField placeholder="Search Lot No" width="auto" search=".onFilterInspLot"/>
+												</Toolbar>
+											</headerToolbar>
+											<columns>
+												<Column>
+													<ObjectIdentifier title="Lot no."/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Created On"/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Material No."/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Description"/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Quantity"/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Decision"/>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem type="Active">
+													<cells>
+														<ObjectNumber number="{inspectionsList>Insplot}" emphasized="true"/>
+														<Text
+															text="{ path : 'inspectionsList>CreatDat', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }\n { path : 'inspectionsList>CreatDat', type : 'sap.ui.model.type.DateTime', formatOptions: { relative : true,relativeScale: 'auto', relativeStyle : 'wide' } }"/>
+														<Text text="{inspectionsList>Material}"/>
+														<ObjectStatus state="Warning" text="{inspectionsList>TxtMat}"/>
+														<Text text="{path: 'inspectionsList>Losmenge',formatter: '.formatter.removeEmpty'}"/>
+														<ObjectStatus state="{path: 'inspectionsList>UsageDecision',formatter: '.formatter.usageDecision'}" text="{inspectionsList>UsageDecision}"
+															icon="{path: 'inspectionsList>UsageDecision',formatter: '.formatter.usageDecisionIcon'}"/>
+														<!--<ObjectStatus state="{= ${inspectionsList>UsageDecision} === 'APPROVED' ? 'Success' : 'Error' }" icon="sap-icon://complete" text="{inspectionsList>UsageDecision}"/>-->
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+										<OverflowToolbar>
+											<ToolbarSpacer/>
+											<Text text="ArunBalajiR FY22 BATCH 6"/>
+											<ToolbarSpacer/>
+										</OverflowToolbar>
+									</IconTabFilter>
+									<IconTabFilter text="Result Records" key="resultrecords">
+										<Table id="resrecordTable" items="{resrecordList>/results}" mode="SingleSelectMaster" selectionChange="onResultRecordSelect">
+											<headerToolbar>
+												<Toolbar>
+													<Title text="Result Records"/>
+													<ToolbarSpacer/>
+													<SearchField placeholder="Search Lot No" width="auto" search=".onFilterResRecLot"/>
+												</Toolbar>
+											</headerToolbar>
+											<columns>
+												<Column>
+													<ObjectIdentifier title="Lot no."/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Inspector"/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Start Date and Time"/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Inspected"/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Recorded"/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Status"/>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem type="Active">
+													<cells>
+														<ObjectNumber number="{resrecordList>Prueflos}"/>
+														<Text text="{resrecordList>Pruefer}"/>
+														<Text text="{ path : 'resrecordList>Pruefdatuv', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }"/>
+														<Text text="{path: 'resrecordList>Anzwertg',formatter: '.formatter.removeEmpty'}"/>
+														<ObjectStatus state="Warning" text="{resrecordList>Iststpumf}"/>
+														<ObjectStatus text="{resrecordList>Satzstatus}" state="Success"/>
+														<!--<ObjectStatus state="{= ${inspectionsList>UsageDecision} === 'APPROVED' ? 'Success' : 'Error' }" icon="sap-icon://complete" text="{inspectionsList>UsageDecision}"/>-->
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+										<OverflowToolbar>
+											<ToolbarSpacer/>
+											<Text text="ArunBalajiR FY22 BATCH 6"/>
+											<ToolbarSpacer/>
+										</OverflowToolbar>
+									</IconTabFilter>
+									<IconTabFilter text="Usage Decisions">
+										<Table id="usageDecisionTable" items="{usageDecisionList>/results}" mode="SingleSelectMaster" selectionChange="onUDSelect">
+											<headerToolbar>
+												<Toolbar>
+													<Title text="Usage Decisions"/>
+													<ToolbarSpacer/>
+													<SearchField placeholder="Search Lot No" width="auto" search=".onFilterUsageDec"/>
+												</Toolbar>
+											</headerToolbar>
+											<columns>
+												<Column>
+													<ObjectIdentifier title="Lot no."/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Usage Decision"/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Automatic UD"/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="Follow Up Action "/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="CodeValuation"/>
+												</Column>
+												<Column>
+													<ObjectIdentifier title="QualityScore"/>
+												</Column>
+											</columns>
+											<items>
+												<ColumnListItem type="Active">
+													<cells>
+														<ObjectNumber number="{usageDecisionList>Insplot}" emphasized="true"/>
+														<ObjectStatus state="{path: 'usageDecisionList>UdCode',formatter: '.formatter.usageDecision'}"
+															text="{path: 'usageDecisionList>UdCode',formatter: '.formatter.usageDText'}"
+															icon="{path: 'usageDecisionList>UdCode',formatter: '.formatter.usageDecisionIcon'}"/>
+														<Text text="{= ${usageDecisionList>IndAutomaticUd} === 'X' ? 'Yes' : 'Not Defined' }"/>
+														<ObjectStatus state="Warning" text="{path: 'usageDecisionList>FollowUpAction',formatter: '.formatter.removeEmpty'}"/>
+														<Text text="{path: 'usageDecisionList>CodeValuation',formatter: '.formatter.removeEmpty'}"/>
+														<Text text="{path: 'usageDecisionList>QualityScore',formatter: '.formatter.removeEmpty'}"/>
+														<!--<ObjectStatus state="{= ${inspectionsList>UsageDecision} === 'APPROVED' ? 'Success' : 'Error' }" icon="sap-icon://complete" text="{inspectionsList>UsageDecision}"/>-->
+													</cells>
+												</ColumnListItem>
+											</items>
+										</Table>
+										<OverflowToolbar>
+											<ToolbarSpacer/>
+											<Text text="ArunBalajiR FY22 BATCH 6"/>
+											<ToolbarSpacer/>
+										</OverflowToolbar>
+									</IconTabFilter>
+								</items>
+							</IconTabBar>
+						</headerContainer>
+					</ObjectHeader>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

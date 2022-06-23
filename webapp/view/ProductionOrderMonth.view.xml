@@ -1,0 +1,77 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="PortalPortal.controller.ProductionOrderMonth"
+	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt" xmlns:f="sap.f"
+	xmlns:card="sap.f.cards">
+	<tnt:ToolHeader>
+		<Button icon="sap-icon://nav-back" type="Transparent" press="onBack"/>
+		<Button icon="sap-icon://home" type="Transparent" press="onHomelogout"/>
+		<Button icon="sap-icon://refresh" type="Transparent" press="setFilteredData"/>
+		
+		<ToolbarSpacer/>
+		<Image src="https://cdn.icon-icons.com/icons2/2699/PNG/512/sap_logo_icon_168849.png" height="50px"/>
+		<Button icon="sap-icon://customer" type="Transparent" press="onHomelogout"/>
+		
+		
+		
+	</tnt:ToolHeader>
+	<App id="app">
+		<pages>
+			<Page showHeader="false">
+				<l:VerticalLayout class="sapUiResponsiveMargin">
+					
+						
+					
+					<Table   id="productionOrderFilterMnthTable"  backgroundDesign="Solid" items="{productionOrderFilterMnth>/results}" mode="SingleSelectMaster"
+						selectionChange="onProductionFilterMnthSelect">
+						
+						<headerToolbar>
+							<Toolbar>
+								<Title text="Production Order - Monthwise"/>
+								<ToolbarSpacer/>
+								<SearchField placeholder="Search Order" width="auto" search=".onFilterProdMonth"/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+								<Column >
+								<ObjectIdentifier title="Order No"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Order Type"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Material"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Material Text"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Reservation Number"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Target Quantity"/>
+							</Column>
+							<Column>
+								<ObjectIdentifier title="Production\nStartdate"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem  type="Active">
+								<cells>
+									<ObjectNumber number="{productionOrderFilterMnth>OrderNumber}" emphasized="true" state="Success"/>
+									<Text text="{productionOrderFilterMnth>OrderType}"/>
+									<Text text="{productionOrderFilterMnth>Material}"/>
+									<Text text="{productionOrderFilterMnth>MaterialText}"/>
+									<ObjectNumber number="{productionOrderFilterMnth>ReservationNumber}" emphasized="true" state="Warning"/>
+									<ObjectStatus state="Success" text="{path:'productionOrderFilterMnth>TargetQuantity',type:'sap.ui.model.type.Float'}"/>
+									<Text
+										text="{ path : 'productionOrderFilterMnth>ProductionStartDate', type : 'sap.ui.model.type.DateTime', formatOptions: { pattern : 'dd-MM-yyyy' } }\n { path : 'productionOrderFilterMnth>ProductionStartDate', type : 'sap.ui.model.type.DateTime', formatOptions: { relative : true,relativeScale: 'auto', relativeStyle : 'wide' } }"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+					<Title titleStyle="H2" text="" class="sapUiTinyMarginBegin sapUiMediumMarginTop"/>
+				</l:VerticalLayout>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
